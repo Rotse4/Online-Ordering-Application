@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:online_order_app/controllers/food_controller.dart';
 
+import '../utils/app_constants.dart';
+import '../utils/counter.dart';
+
+// ignore: must_be_immutable
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  int pageId;
+  DetailPage({Key? key, required this.pageId}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
+  FoodController foodController=Get.find();
   @override
   Widget build(BuildContext context) {
+    var foodModel=foodController.getFoodById(widget.pageId);
+    // var product = Get.find<FoodController>().foodList[pageId];
     return Scaffold(
       body: SizedBox(
         //color: Colors.blue,
@@ -40,8 +50,8 @@ class _DetailPageState extends State<DetailPage> {
               padding: const EdgeInsets.only(left: 30, right: 30,),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text("SUPER \nBEEF BURGER",
+                children:  [
+                  Text("${foodModel?.title??""}",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -64,9 +74,9 @@ class _DetailPageState extends State<DetailPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: Colors.cyan,
-                      image: const DecorationImage(
-                        image: AssetImage(
-                          'assets/images/hamburg.jpg',
+                      image:  DecorationImage(
+                        image: NetworkImage(
+                          AppConstants.BASE_URL+(foodModel.image??"")
                         ),
                         fit: BoxFit.cover,
                       )
@@ -115,57 +125,13 @@ class _DetailPageState extends State<DetailPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("\$42", style: TextStyle(
+                   Text("Ksh ${foodModel.price??""}", style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25
                   ),),
-                  Stack(
-                    children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10)
-                          ),
-                          color: Colors.orange,
-                        ),
-                        width: MediaQuery.of(context).size.width/1.96363636,
-                       child: SizedBox(
-                         width: MediaQuery.of(context).size.width/4.909090,
-                         //color: Colors.cyan,
-                         child: Row(
-                           children: [
-                             IconButton(
-                               icon: const Icon(Icons.add),
-                               onPressed: () {
-                                 // Perform an action when the add icon is pressed
-                               },
-                             ),
-                             SizedBox(
-                               width: MediaQuery.of(context).size.width/24.54545454,
-                             ),
-                             const Text(
-                               '5',
-                               style: TextStyle(
-                                 fontSize: 18.0,
-                                 fontWeight: FontWeight.bold,
-                               ),
-                             ),
-                             SizedBox(
-                               width: MediaQuery.of(context).size.width/24.54545454,
-                             ),
-                             IconButton(
-                               icon: const Icon(Icons.remove),
-                               onPressed: () {
-                                 // Perform an action when the remove icon is pressed
-                               },
-                             ),
-                           ],
-                         ),
-
-                       ),
-                      )
-                    ],
-                  )
+                  Count(foodModel: foodModel,productEvent: (foodModel, itemEvent) {
+                    print("this food ${foodModel.title} as being ${itemEvent.name} by 1");
+                  },)
                 ],
               ),
             ),
@@ -295,4 +261,6 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 }
+
+
 

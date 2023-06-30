@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:online_order_app/routes/rout_helper.dart';
 
 import 'details/details_page.dart';
 
@@ -80,10 +82,7 @@ class _FeaturedPageState extends State<FeaturedPage> {
                         children: [
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) =>  const DetailPage()),
-                              );
+                              Get.toNamed(RouteHelper.detailPage);
                             },
                             child: Container(
                               height: MediaQuery.of(context).size.height/10.0375,
@@ -135,9 +134,8 @@ class _FeaturedPageState extends State<FeaturedPage> {
                         children: [
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const DetailPage()),
+                              Get.toNamed(
+                                RouteHelper.detailPage
                               );
                             },
                             child: Container(
