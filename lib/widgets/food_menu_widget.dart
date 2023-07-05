@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:online_order_app/controllers/food_controller.dart';
 import 'package:online_order_app/models/Food_models.dart';
 import 'package:online_order_app/utils/app_constants.dart';
 

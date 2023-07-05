@@ -4,10 +4,8 @@ import 'package:get/get.dart';
 import 'package:online_order_app/controllers/food_controller.dart';
 import 'package:online_order_app/models/Food_models.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
-import 'package:online_order_app/widgets/login_page.dart';
 import 'package:online_order_app/widgets/user_dialog.dart';
 
-import '../details/details_page.dart';
 import '../featured.dart';
 import 'food_menu_widget.dart';
 

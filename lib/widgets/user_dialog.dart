@@ -13,8 +13,8 @@ class DialogExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       // surfaceTintColor: Colors.white,
-          backgroundColor: Color.fromRGBO(255, 255, 255, 0),
-          surfaceTintColor: Colors.transparent,
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40)
           ),
@@ -30,7 +30,7 @@ class DialogExample extends StatelessWidget {
                       children: [
                 Expanded(
                   child: Container(
-                    color: Colors.transparent,
+                    color: Colors.white,
                     // Add your content widgets here
                     child: Column(
                       children: [

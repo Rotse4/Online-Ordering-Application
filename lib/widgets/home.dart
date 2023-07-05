@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                       color: Colors.orange.withOpacity(0.6),
                     ),
 
-                    child: CircleAvatar(backgroundColor: Colors.orange,
+                    child: const CircleAvatar(backgroundColor: Colors.orange,
                     backgroundImage: AssetImage("assets/images/avatar.png"),)
                   ),
                   ),                 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
 
-import 'details/details_page.dart';
 
 
 class FeaturedPage extends StatefulWidget {

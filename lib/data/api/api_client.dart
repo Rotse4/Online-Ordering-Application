@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/data/api/repository/auth_repo.dart';
 import 'package:online_order_app/utils/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../routes/rout_helper.dart';
 // import 'package:http/http.dart' as http;
 
 class ApiClient extends GetConnect implements GetxService{

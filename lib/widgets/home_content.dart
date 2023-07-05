@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/details/list_page.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
-
 import '../controllers/food_controller.dart';
 import '../models/Food_models.dart';
 import 'food_menu_widget.dart';

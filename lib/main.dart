@@ -48,7 +48,7 @@ class _OnlineOrderingAppState extends State<OnlineOrderingApp> {
           debugShowCheckedModeBanner: false,
           title: 'Online Ordering App',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.orange,
           ),
           // home: LoginPage(),
           // home: HomePage(),

@@ -29,7 +29,7 @@ class RouteHelper{
       
     },
     transition: Transition.fadeIn,
-    transitionDuration: Duration(milliseconds: 60)
+    transitionDuration: const Duration(milliseconds: 60)
     ),
   ];
 }
