@@ -9,7 +9,7 @@ import 'package:online_order_app/utils/show_custom_snackbar.dart';
 import 'package:online_order_app/widgets/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home_page.dart';
+
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

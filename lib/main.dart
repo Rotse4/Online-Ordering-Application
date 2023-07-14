@@ -9,10 +9,6 @@ import 'package:online_order_app/widgets/login_page.dart';
 import 'package:online_order_app/widgets/register_page.dart';
 
 import 'data/api/repository/auth_repo.dart';
-import 'details/details_page.dart';
-import 'featured.dart';
-import 'widgets/food_menu_widget.dart';
-import 'widgets/home_page.dart';
 import 'helper/dependancies.dart' as dep;
 
 Future<void> main() async {

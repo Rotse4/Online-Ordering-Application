@@ -116,7 +116,9 @@ class FoodController extends GetxController {
       print(_foodList);
       _isLoaded = true;
       update();
-    } else {}
+    } else {
+      print("foods not found");
+    }
   }
 
   FoodModel getFoodById(int id) {

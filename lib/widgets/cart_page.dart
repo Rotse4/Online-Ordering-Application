@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_order_app/widgets/checkout_page.dart';
 
 import '../controllers/food_controller.dart';
 import '../utils/app_constants.dart';
@@ -237,16 +238,21 @@ class CartPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          height: 55,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.orange,
+                        GestureDetector(
+                          onTap: (){
+                            Get.to( CheckOutPage());
+                          },
+                          child: Container(
+                            height: 55,
+                            width: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.orange,
+                            ),
+                            child: Center(child: Text("Place Order",
+                            style:
+                                    TextStyle(fontSize: 16, color: Colors.white),)),
                           ),
-                          child: Center(child: Text("Place Order",
-                          style:
-                                  TextStyle(fontSize: 16, color: Colors.white),)),
                         ),
                       ],
                     ),
