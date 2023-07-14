@@ -1,0 +1,42 @@
+[33mcommit 7fab24123dd536d53d6b1a16a28ac992ad00f8a6[m[33m ([m[1;36mHEAD -> [m[1;32mnew[m[33m)[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Fri Jul 14 10:06:34 2023 +0300
+
+    Before adding order model
+
+[33mcommit 901036c95e69ea2774702a402bb25e2e8f616b77[m[33m ([m[1;31morigin/new[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Wed Jul 5 15:09:29 2023 +0300
+
+    Before creating checkoutPage
+
+[33mcommit 82c9ed23dedd28a4e147486c645bbb0502adee54[m
+Merge: 2dd1a9c 503c8f2
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Fri Jun 30 18:34:23 2023 +0300
+
+    Merge remote-tracking branch 'origin/main' into new
+
+[33mcommit 2dd1a9cf4f8e4e68ed714c0db6ce308c17e4883a[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Fri Jun 30 18:26:08 2023 +0300
+
+    after detail page creation
+
+[33mcommit 503c8f2f44acc71ab5e27ace89540ce9d117a69b[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Fri Jun 30 18:26:08 2023 +0300
+
+    after detail page creation
+
+[33mcommit 338f72b6742bd8611a7a3d455a16421d244adf4d[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Wed Jun 14 11:05:19 2023 +0300
+
+    Api connection
+
+[33mcommit b5f813839c876b044af37708608a35f49cc868a0[m
+Author: Rotse4 <muusyajapheth12@gmail.com>
+Date:   Tue Apr 11 02:25:52 2023 +0300
+
+    Final Online ordering application
