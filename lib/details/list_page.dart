@@ -22,7 +22,7 @@ class _ListPageState extends State<ListPage> {
     'FEATURED',
     'COMBOS',
     'FAVORITES',
-    'RECOMMENDED'
+    'RECOMMENDED',
   ];
   int _selectedIndex = 0;
 
@@ -33,7 +33,7 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1590,
+      height: 1850,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,17 +56,22 @@ class _ListPageState extends State<ListPage> {
                         );
                       });
                     },
-                    child: Container(
-                      //color: Colors.amberAccent,
-                      margin: const EdgeInsets.only(left: 20, right: 10),
-                         child: Text(
-                            _categories[index],
-                            style: TextStyle(
-                              fontSize: _selectedIndex == index ? 16 : 12,
-                              fontWeight:
-                              _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
-                            ),
-                          )
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          //color: Colors.amberAccent,
+                          margin: const EdgeInsets.only(left: 20, right: 10),
+                             child: Text(
+                                _categories[index],
+                                style: TextStyle(
+                                  fontSize: _selectedIndex == index ? 15 : 12,
+                                  fontWeight:
+                                  _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+                                ),
+                              )
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -93,18 +98,18 @@ class _ListPageState extends State<ListPage> {
                       itemCount: allFoods.foodList.length,
                       itemBuilder: (context, index){
                         FoodModel foodModel =allFoods.foodList[index];
-                        return Container(
-                          height: 100,
-                          width: 100,
-                          margin: EdgeInsets.only(bottom: 20),
-                          child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            GestureDetector(
-                              onTap: (){
-                                Get.toNamed(RouteHelper.getDetailPage(foodModel.id??0));
-                              },
-                              child: Container(
+                        return GestureDetector(
+                          onTap: (){
+                                  Get.toNamed(RouteHelper.getDetailPage(foodModel.id??0));
+                                },
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            margin: EdgeInsets.only(bottom: 20),
+                            child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
                                 height: MediaQuery.of(context).size.height/10.0375,
                                 width: MediaQuery.of(context).size.width/4.909090,
                                 decoration: BoxDecoration(
@@ -118,39 +123,39 @@ class _ListPageState extends State<ListPage> {
                                 ),
                                 //color: Colors.yellow,
                               ),
-                            ),
-                            const SizedBox(width: 20,),
-                            Container(
-                              margin: const EdgeInsets.only(left: 0),
-                              height: MediaQuery.of(context).size.height/10.0375,
-                              width: MediaQuery.of(context).size.width/2.53372,
-                              //color: Colors.blue,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                   Text("${foodModel.title!}"),
-                                          Wrap(
-                                            children:
-                                            List.generate(5, (index) => const Icon(Icons.star, color: Colors.yellow,size: 10,)),
-                                          ),
-                                  const Text("\$25   ""\$18"),
-                                ],
+                              const SizedBox(width: 20,),
+                              Container(
+                                margin: const EdgeInsets.only(left: 0),
+                                height: MediaQuery.of(context).size.height/10.0375,
+                                width: MediaQuery.of(context).size.width/2.53372,
+                                //color: Colors.blue,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                     Text("${foodModel.title!}"),
+                                            Wrap(
+                                              children:
+                                              List.generate(5, (index) => const Icon(Icons.star, color: Colors.yellow,size: 10,)),
+                                            ),
+                                    const Text("\$25   ""\$18"),
+                                  ],
+                                ),
                               ),
-                            ),
-                             SizedBox(width: MediaQuery.of(context).size.width/8.727272,),
-                            Container(
-                              height: MediaQuery.of(context).size.height/16.7291667,
-                              width: MediaQuery.of(context).size.width/8.181818,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                color: Colors.orange,
+                               SizedBox(width: MediaQuery.of(context).size.width/8.727272,),
+                              Container(
+                                height: MediaQuery.of(context).size.height/16.7291667,
+                                width: MediaQuery.of(context).size.width/8.181818,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(24),
+                                  color: Colors.orange,
+                                ),
+                                padding: const EdgeInsets.all(10),
+                                child: const Icon(Icons.add, color: Colors.white,),
                               ),
-                              padding: const EdgeInsets.all(10),
-                              child: const Icon(Icons.add, color: Colors.white,),
-                            ),
-                          ],
-                        ),
+                            ],
+                          ),
+                          ),
                         );
                       });
                       },)

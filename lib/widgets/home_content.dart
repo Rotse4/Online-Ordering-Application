@@ -56,6 +56,7 @@ class _HomeContentState extends State<HomeContent> {
               Container(
                 child: GetBuilder<FoodController>(builder: (allFoods){
                 return allFoods.isLoaded?Container(
+                  // padding: EdgeInsets.only(right: 20),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height/3.824,
                   child: ListView.builder(

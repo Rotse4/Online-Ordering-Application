@@ -35,11 +35,11 @@ class CartPage extends StatelessWidget {
                         width: MediaQuery.of(context).size.width / 9.818181,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.blue,
+                          color: Colors.white,
                         ),
                         child: const Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
+                          Icons.arrow_back_ios_new,
+                          color: Colors.orange,
                         ),
                       ),
                     ),

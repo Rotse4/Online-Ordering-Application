@@ -35,7 +35,23 @@ class _DetailPageState extends State<DetailPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.menu),
+                   GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                     child: Container(
+                            height: MediaQuery.of(context).size.height / 20.075,
+                            width: MediaQuery.of(context).size.width / 9.818181,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Color.fromARGB(255, 245, 233, 214),
+                            ),
+                            child:  Icon(
+                              Icons.arrow_back_ios_outlined,
+                              color: Colors.orange[900],
+                            ),
+                          ),
+                   ),
                   GestureDetector(
                     onTap: () {
                       Get.to(CartPage());

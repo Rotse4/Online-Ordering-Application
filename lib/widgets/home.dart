@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:online_order_app/routes/rout_helper.dart';
+import 'package:online_order_app/widgets/drawer.dart';
 import 'package:online_order_app/widgets/home_content.dart';
 import 'package:online_order_app/widgets/user_dialog.dart';
 
@@ -10,9 +13,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Draawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,8 +32,11 @@ class _HomeState extends State<Home> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      // Get.to(LoginPage());
+                      _scaffoldKey.currentState!.openDrawer();
                     },
+                    // onTap: () {
+                    //   Get.toNamed(RouteHelper.orderHistory);
+                    // },
                     child: const Icon(Icons.menu),
                   ),
                   const SizedBox(width: 20),
