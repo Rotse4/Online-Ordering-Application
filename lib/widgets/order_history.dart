@@ -16,6 +16,7 @@ class _OrderHistoryState extends State<OrderHistory> {
   // FoodController foodController= Get.find<FoodController>();
   OrderController orderController = Get.find<OrderController>();
   final PageController _pageController = PageController();
+   final ScrollController _listViewController = ScrollController();
   final List<String> _categories = [
     'OPEN ORDERS',
     'CLOSED ORDERS',
@@ -68,7 +69,7 @@ class _OrderHistoryState extends State<OrderHistory> {
             ),
           ),
           Container(
-            height: 50,
+            height: MediaQuery.of(context).size.height*0.05875,
             // padding: EdgeInsets.symmetric(horizontal: 20),
             // color: Color.fromARGB(255, 204, 183, 152),
 
@@ -114,10 +115,10 @@ class _OrderHistoryState extends State<OrderHistory> {
             ),
           ),
           Container(
-            height: 710,
+            height: MediaQuery.of(context).size.height*0.83431,
             // color: Colors.orange,
             child: PageView.builder(
-              itemCount: 2,
+              itemCount: _categories.length,
               itemBuilder: (context, index) {
                 return Container(
                     // margin: EdgeInsets.symmetric(vertical: 20),
@@ -125,9 +126,10 @@ class _OrderHistoryState extends State<OrderHistory> {
                     // height: 200,
                     // color: Colors.white,
                     child: Container(
-                  height: 708,
+                  height: MediaQuery.of(context).size.height*0.83196,
                   child: GetBuilder<OrderController>(builder: (allOrders) {
                     return ListView.builder(
+                      // reverse: true,
                         itemCount: allOrders.orderList.length,
                         itemBuilder: (context, index) {
                           OrderModel orderModel = allOrders.orderList[index];
@@ -139,12 +141,12 @@ class _OrderHistoryState extends State<OrderHistory> {
                               borderRadius: BorderRadius.circular(5),
                               color: Colors.white,
                             ),
-                            height: 100,
+                            height: MediaQuery.of(context).size.height*0.1175,
                             child: Row(
                               children: [
                                 Container(
-                                  height: 100,
-                                  width: 100,
+                                  height: MediaQuery.of(context).size.height*0.11751,
+                                  width: MediaQuery.of(context).size.width*0.25445,
                                   clipBehavior: Clip.antiAlias,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
@@ -168,11 +170,11 @@ class _OrderHistoryState extends State<OrderHistory> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "Mukimo dd fnfnfnf fmfkfkkd f4fffffrr",
+                                          "${orderModel.orderDate}",
                                           style: TextStyle(
                                               overflow: TextOverflow.ellipsis),
                                         ),
-                                        Text("Mukimo"),
+                                        Text("Total: ${orderModel.total}"),
                                         Text("status ${orderModel.confirmed}"),
                                       ],
                                     ),
@@ -185,6 +187,16 @@ class _OrderHistoryState extends State<OrderHistory> {
                   }),
                 ));
               },
+              onPageChanged: (index) {
+          setState(() {
+            _selectedIndex = index;
+            _pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.ease,
+            );
+          });
+        },
               controller: _pageController,
             ),
           )

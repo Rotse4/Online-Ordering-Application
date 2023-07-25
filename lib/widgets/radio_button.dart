@@ -17,7 +17,7 @@ class _RadioSelectState extends State<RadioSelect> {
   @override
   Widget build(BuildContext context) {
     return Container(
-              height: 320,
+              height: MediaQuery.of(context).size.height*0.3760,
               padding: EdgeInsets.symmetric(horizontal: 20, ),
               child: Card(
                 child: Column(

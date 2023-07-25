@@ -8,7 +8,7 @@ class FoodRepo extends GetxService{
 
   Future<Response?> getFoodList() async{
      
-    var data= await apiClient.getData(AppConstants.fOOD_URI);
+    var data= await apiClient.getData(AppConstants.FOOD_URI);
     return data;
   }
 
@@ -21,5 +21,11 @@ class FoodRepo extends GetxService{
   Future <Response?> getUserOrders() async {
     var ndata = await apiClient.getData(AppConstants.USER_ORDERS);
     return ndata;
+  }
+
+    Future<Response?> getCategory() async{
+     print("Nimeitwa");
+    var data= await apiClient.getData(AppConstants.CARTEGORY);
+    return data;
   }
 }

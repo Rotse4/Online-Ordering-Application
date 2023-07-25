@@ -13,8 +13,8 @@ import '../controllers/auth_contloller.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
   // AuthController authController=Get.find();
-  var emailController = TextEditingController(text: "japheth@gmail.com");
-  var passwordController = TextEditingController(text: 'japheth');
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   Future<UserModel?> _login() async {
     var authController = Get.find<AuthController>();
@@ -56,12 +56,12 @@ class LoginPage extends StatelessWidget {
                 size: 100,
                 // static const IconData cases_rounded = IconData(0xf61e, fontFamily: 'MaterialIcons'),
               )),
-              const SizedBox(height: 50),
+               SizedBox(height: MediaQuery.of(context).size.height*0.05875),
               Text(
                 "Welcome back you\'ve been missed!",
                 style: TextStyle(color: Colors.grey[700], fontSize: 16),
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: MediaQuery.of(context).size.height*0.0235),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
@@ -83,8 +83,8 @@ class LoginPage extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey.shade400))),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: MediaQuery.of(context).size.height*0.0235,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -108,7 +108,7 @@ class LoginPage extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey.shade400))),
                 ),
               ),
-              const SizedBox(height: 10),
+               SizedBox(height: MediaQuery.of(context).size.height*0.01175),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
@@ -121,8 +121,8 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+               SizedBox(
+                height: MediaQuery.of(context).size.height*0.01762,
               ),
               GestureDetector(
                 onTap: () async {
@@ -153,8 +153,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 50,
+               SizedBox(
+                height: MediaQuery.of(context).size.height*0.05875,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -182,8 +182,8 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 50,
+               SizedBox(
+                height: MediaQuery.of(context).size.height*0.05875,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -197,11 +197,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     child: Image.asset(
                       "assets/images/apple.png",
-                      height: 40,
+                      height: MediaQuery.of(context).size.height*0.0470,
                     ),
                   ),
-                  const SizedBox(
-                    width: 25,
+                   SizedBox(
+                    width: MediaQuery.of(context).size.width*0.06361,
                   ),
                   Container(
                     padding: EdgeInsets.all(20),
@@ -212,13 +212,13 @@ class LoginPage extends StatelessWidget {
                     ),
                     child: Image.asset(
                       "assets/images/google.png",
-                      height: 40,
+                      height: MediaQuery.of(context).size.height*0.047,
                     ),
                   )
                 ],
               ),
-              const SizedBox(
-                height: 50,
+               SizedBox(
+                height: MediaQuery.of(context).size.height*0.05875,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -227,7 +227,7 @@ class LoginPage extends StatelessWidget {
                     'Not a member?',
                     style: TextStyle(color: Colors.grey[700]),
                   ),
-                  const SizedBox(width: 4),
+                   SizedBox(width: MediaQuery.of(context).size.width*0.01017),
                   GestureDetector(
                     onTap: () {
                       Get.to(() => RegisterPage());

@@ -14,9 +14,10 @@ class Draawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 220,
+      width: MediaQuery.of(context).size.width*0.5679,
       child: Container(
         padding: EdgeInsets.only(top: 60, left: 15, right: 15),
+        color: const Color.fromARGB(255, 247, 235, 218),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,9 +50,10 @@ class Draawer extends StatelessWidget {
                     Text("Active", style: TextStyle(
                       fontWeight: FontWeight.bold
                     )),
-                    SizedBox(width: 20,),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.0509,),
                     Container(
-                      height: 15,
+                      height: MediaQuery.of(context).size.height*0.01762,
+                      // width: MediaQuery.of(context).size.width*0.0509,
                       width: 20,
                       
                       decoration: BoxDecoration(
@@ -81,9 +83,10 @@ class Draawer extends StatelessWidget {
                     Text("Delivered", style: TextStyle(
                       fontWeight: FontWeight.bold
                     )),
-                    SizedBox(width: 20,),
+                    SizedBox(width: MediaQuery.of(context).size.height*0.0509,),
                     Container(
-                      height: 15,
+                      height: MediaQuery.of(context).size.height*0.01762,
+                      // width: MediaQuery.of(context).size.height*0.0509,
                       width: 20,
                       
                       decoration: BoxDecoration(

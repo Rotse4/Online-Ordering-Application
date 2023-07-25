@@ -24,7 +24,7 @@ class _DropdownState extends State<Dropdown> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
-          height: 40,
+          height: MediaQuery.of(context).size.height*0.047,
           width: double.maxFinite,
           margin: EdgeInsets.only(left: 20,right: 20),
           padding: EdgeInsets.all(10),

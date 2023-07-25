@@ -86,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // static const IconData cases_rounded = IconData(0xf61e, fontFamily: 'MaterialIcons'),
               )
             ),
-            const SizedBox(height: 30),
+             SizedBox(height: MediaQuery.of(context).size.height*0.03525),
             Text("Welcome  here!",
             style: TextStyle(
               color: Colors.grey[700],
@@ -117,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
+                 SizedBox(height: MediaQuery.of(context).size.height*0.023501,),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextField(
@@ -142,7 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
+                 SizedBox(height: MediaQuery.of(context).size.height*0.023501,),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextField(
@@ -169,7 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
               
-            const SizedBox(height: 20,),
+             SizedBox(height: MediaQuery.of(context).size.height*0.0235,),
             Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextField(
@@ -195,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: MediaQuery.of(context).size.height*0.01175),
                 // Padding(
                 //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 //     child: Row(
@@ -208,7 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 //       ],
                 //     ),
                 //   ),
-                  const SizedBox(height: 15,),
+                   SizedBox(height: MediaQuery.of(context).size.height*0.01762,),
                   GestureDetector(
                     onTap: (){
                       
@@ -246,7 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
               
-          const SizedBox(height: 30,),
+           SizedBox(height: MediaQuery.of(context).size.height*0.03525,),
                         Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
@@ -274,7 +274,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
               
-                  const SizedBox(height: 30,),
+                   SizedBox(height: MediaQuery.of(context).size.height*0.03525,),
                   
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -287,9 +287,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: Colors.grey[200],
                         ),
                         child: Image.asset("assets/images/apple.png",
-                        height: 40,),
+                        height: MediaQuery.of(context).size.height*0.047,),
                       ),
-                      const SizedBox(width: 25,),
+                       SizedBox(width: MediaQuery.of(context).size.width*0.06361,),
                                         Container(
                         padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -298,12 +298,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: Colors.grey[200],
                         ),
                         child: Image.asset("assets/images/google.png",
-                        height: 40,),
+                        height: MediaQuery.of(context).size.height*0.047,),
                       )
                       
                     ],
                   ),
-                                const SizedBox(height: 25,),
+                                 SizedBox(height: MediaQuery.of(context).size.height*0.02937,),
                                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -311,7 +311,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         'A member?',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
-                      const SizedBox(width: 4),
+                       SizedBox(width: MediaQuery.of(context).size.width*0.01017),
                       GestureDetector(
                         onTap: (){
                           Get.to(()=> LoginPage());

@@ -25,7 +25,7 @@ class DialogExample extends StatelessWidget {
              
                if(snap.hasData){
               return Container(
-                height: 240,
+                height: MediaQuery.of(context).size.height*0.282021,
                 child: Column(
                       children: [
                 Expanded(
@@ -35,8 +35,8 @@ class DialogExample extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          height: 100,
-                          width: 100,
+                          height: MediaQuery.of(context).size.height*0.11751,
+                          width: MediaQuery.of(context).size.width*0.25445,
                           decoration: BoxDecoration(
                             color: Colors.orange,
                             borderRadius: BorderRadius.circular(50),
@@ -50,7 +50,7 @@ class DialogExample extends StatelessWidget {
                         SizedBox(height: 20,),
                         Container(
                           // height: 150,
-                          width: 200,
+                          width: MediaQuery.of(context).size.width*0.50891,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(50),
@@ -76,7 +76,7 @@ class DialogExample extends StatelessWidget {
                                   ),)
                                 ],
                               ),
-                              SizedBox(height: 20,),
+                              SizedBox(height: MediaQuery.of(context).size.height*0.0235,),
                               Column(
                                 children: [
                                   Text("Email", style: TextStyle(
@@ -100,7 +100,7 @@ class DialogExample extends StatelessWidget {
               );
             }
             return Container(
-              height: 240,
+              height: MediaQuery.of(context).size.height*0.28202,
             );
             }
           ),

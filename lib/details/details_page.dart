@@ -24,6 +24,7 @@ class _DetailPageState extends State<DetailPage> {
 
     // var product = Get.find<FoodController>().foodList[pageId];
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 247, 235, 218),
       body: SizedBox(
         //color: Colors.blue,
         //margin: EdgeInsets.only(left: 30, right: 30, top: 40),
@@ -35,23 +36,23 @@ class _DetailPageState extends State<DetailPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   GestureDetector(
+                  GestureDetector(
                     onTap: () {
                       Get.back();
                     },
-                     child: Container(
-                            height: MediaQuery.of(context).size.height / 20.075,
-                            width: MediaQuery.of(context).size.width / 9.818181,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color.fromARGB(255, 245, 233, 214),
-                            ),
-                            child:  Icon(
-                              Icons.arrow_back_ios_outlined,
-                              color: Colors.orange[900],
-                            ),
-                          ),
-                   ),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 20.075,
+                      width: MediaQuery.of(context).size.width / 9.818181,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color.fromARGB(255, 245, 233, 214),
+                      ),
+                      child: Icon(
+                        Icons.arrow_back_ios_outlined,
+                        color: Colors.orange[900],
+                      ),
+                    ),
+                  ),
                   GestureDetector(
                     onTap: () {
                       Get.to(CartPage());
@@ -181,7 +182,9 @@ class _DetailPageState extends State<DetailPage> {
             Container(
               padding: const EdgeInsets.only(
                 left: 30,
+                
               ),
+              margin: EdgeInsets.only(bottom: 20),
               height: MediaQuery.of(context).size.height / 16.06,
               //color: Colors.orange,
               child: Row(
@@ -196,7 +199,7 @@ class _DetailPageState extends State<DetailPage> {
                       children: [
                         Count(
                           foodModel: cart.getCartItem(foodModel) ??
-                              CartItem(foodModel: foodModel,quantity: 0.obs),
+                              CartItem(foodModel: foodModel, quantity: 0.obs),
                           productEvent: (foodModel, itemEvent) {
                             switch (itemEvent) {
                               case ItemEvent.INCREMENT:
@@ -224,19 +227,25 @@ class _DetailPageState extends State<DetailPage> {
                                 },
                                 child: Container(
                                     height: 60,
-                                    color: Colors.orange,
                                     padding:
                                         EdgeInsets.only(left: 10, right: 10),
-
-                                    // margin: EdgeInsets.only(right: 15),
+                                    margin: EdgeInsets.only(right: 25, left: 2),
+                                    decoration: BoxDecoration(
+                                        color: Colors.orange,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     child: Center(
-                                      child: Text(
-                                        "Remove from cart",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    )),
+                                        child: Icon(
+                                      Icons.delete,
+                                      color: Colors.white,
+                                    )
+                                        // Text(
+                                        //   "Remove from cart",
+                                        //   style: TextStyle(
+                                        //       color: Colors.white,
+                                        //       fontWeight: FontWeight.w800),
+                                        // ),
+                                        )),
                               )
                             : GestureDetector(
                                 onTap: () {
@@ -245,9 +254,12 @@ class _DetailPageState extends State<DetailPage> {
                                 child: Container(
                                     padding:
                                         EdgeInsets.only(left: 10, right: 10),
+                                        margin: EdgeInsets.only(right: 20),
                                     height: 60,
-                                    color: Colors.orange,
-
+                                    decoration: BoxDecoration(
+                                        color: Colors.orange,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     // margin: EdgeInsets.only(right: 15, ),
                                     child: Center(
                                       child: Text(
@@ -264,157 +276,14 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 7,
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: MediaQuery.of(context).size.height / 10.0375,
-                    //color: Colors.blueGrey,
-                    margin: const EdgeInsets.only(left: 20, right: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              height:
-                                  MediaQuery.of(context).size.height / 10.0375,
-                              width:
-                                  MediaQuery.of(context).size.width / 4.909090,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/hotdog.jpg",
-                                      ),
-                                      fit: BoxFit.cover)),
-                              //color: Colors.yellow,
-                            ),
-                            SizedBox(
-                              width:
-                                  MediaQuery.of(context).size.width / 19.636363,
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 0),
-                              height:
-                                  MediaQuery.of(context).size.height / 10.0375,
-                              width: MediaQuery.of(context).size.width /
-                                  2.53372434,
-                              //color: Colors.blue,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "Delicious hot dog",
-                                  ),
-                                  Wrap(
-                                    children: List.generate(
-                                        5,
-                                        (index) => const Icon(
-                                              Icons.star,
-                                              color: Colors.yellow,
-                                              size: 10,
-                                            )),
-                                  ),
-                                  const Text("\$25   " "\$18"),
-                                ],
-                              ),
-                            ),
-                            //SizedBox(width: 45,),
-                            /* Container(
-                              height: 48,
-                              width: 48,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                color: Colors.green,
-                              ),
-                              child: Icon(Icons.add, color: Colors.white,),
-                              padding: EdgeInsets.all(10),
-                            ),*/
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              height:
-                                  MediaQuery.of(context).size.height / 10.0375,
-                              width:
-                                  MediaQuery.of(context).size.width / 4.909090,
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/pizza.jpg",
-                                      ),
-                                      fit: BoxFit.cover)
-                                  //color: Colors.yellow,
-                                  ),
-                              /*child: Image.asset(
-                              "assets/images/hotdog.jpg",
-                              width: 20,
-                              height: 20,
-                              alignment: Alignment.center,
-                              fit: BoxFit.contain,
-                                ),*/
-                            ),
-                            SizedBox(
-                              width:
-                                  MediaQuery.of(context).size.width / 19.636363,
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 0),
-                              height:
-                                  MediaQuery.of(context).size.height / 10.0375,
-                              width: MediaQuery.of(context).size.width /
-                                  2.53372434,
-                              //color: Colors.blue,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "Cheese pizza",
-                                  ),
-                                  Wrap(
-                                    children: List.generate(
-                                        5,
-                                        (index) => const Icon(
-                                              Icons.star,
-                                              color: Colors.yellow,
-                                              size: 10,
-                                            )),
-                                  ),
-                                  const Text("\$25   " "\$18"),
-                                ],
-                              ),
-                            ),
-                            //SizedBox(width: 45,),
-                            /* Container(
-                              height: 48,
-                              width: 48,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                color: Colors.green,
-                              ),
-                              child: Icon(Icons.add, color: Colors.white,),
-                              padding: EdgeInsets.all(10),
-                            ),*/
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+           Expanded(
+            child: SingleChildScrollView(
+            child: Container(
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              child: Text("${foodModel.description}"),
             ),
+           )),
+           SizedBox(height: 25,)
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:online_order_app/models/Food_models.dart';
-import 'package:online_order_app/models/orders_model.dart';
 import 'package:online_order_app/utils/show_custom_snackbar.dart';
 import '../data/api/repository/food_repo.dart';
 
@@ -12,6 +11,7 @@ class Cart {
   }
 
   bool get isCartEmpty => foodListModel.isEmpty ? true : false;
+  RxBool inCart = false.obs;
   addItem(FoodModel foodModel) {
     var existingFoodModel = foodListModel
         .firstWhereOrNull((element) => foodModel.id == element.foodModel.id);
@@ -43,7 +43,7 @@ class Cart {
   }
 
   get bill => foodListModel.fold(0, (current, next) {
-        print("the qunatity ${next.quantity.value}");
+        // print("the qunatity ${next.quantity.value}");
         return (current + (next.foodModel.price ?? 0) * next.quantity.value);
       });
 
@@ -64,6 +64,16 @@ class Cart {
     var existingFoodModel = foodListModel
         .firstWhereOrNull((element) => foodModel.id == element.foodModel.id);
     if (existingFoodModel != null) {
+      return true;
+    }
+    return false;
+  }
+
+  bool innCart(FoodModel foodModel){
+    var existingFoodModel = foodListModel
+        .firstWhereOrNull((element) => foodModel.id == element.foodModel.id);
+    if(existingFoodModel!=null){
+      inCart =true.obs;
       return true;
     }
     return false;
@@ -100,8 +110,8 @@ class FoodController extends GetxController {
   FoodController({required this.foodRepo});
   List<FoodModel> _foodList = [];
   List<FoodModel> get foodList => _foodList;
-  List<OrderModel> _orderList =[];
-  List<OrderModel> get orderList => _orderList;
+  List<FoodModel> _featuredList =[];
+  List<FoodModel> get fraturedList => _featuredList;
   Cart cart = Cart();
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
@@ -111,7 +121,7 @@ class FoodController extends GetxController {
     cart.addItem(foodModel);
     update();
   }
-
+   
   Future<void> getFoodList() async {
     Response? response = await foodRepo.getFoodList();
     if (response?.statusCode == 200) {
@@ -149,19 +159,23 @@ return;
 
   RxString payment_number="".obs;
 
-  //   Future<void> getUserOrders() async {
-  //   Response? response = await foodRepo.getUserOrders();
-  //   print("this is the esponse ${response?.bodyString}");
-  //   if (response?.statusCode == 200) {
-  //     print(" YOUR user orders $_orderList");
-  //     // FoodModel.fromJson(response.body);
-  //     _orderList = [];
-  //     _orderList.addAll(Order.fromJson(response?.body).orders);
-  //     print(" YOUR user orders $_orderList");
-  //     _isLoaded = true;
-  //     update();
-  //   } else {
-  //     print("user orders not found");
-  //   }
-  // }
+  Future<void> getCategory() async {
+  Response? response = await foodRepo.getCategory();
+    if (response?.statusCode == 200) {
+      _featuredList = [];
+      _featuredList.addAll(Food.fromJson(response?.body).foods);
+      // print(_foodList);
+      print("list featured $_featuredList");
+       print("list featured ${_featuredList.length}");
+      print("imefika hapa");
+      _isLoaded = true;
+      update();
+    } else {
+      print("foods not found");
+    }
+  }
+List<FoodModel> get recommended => this._featuredList.where((element) => element.category=="recommended").toList();
+List<FoodModel>  get popular => this._featuredList.where((element) => element.category=="popular").toList();
+List<FoodModel>  get featured => this._featuredList.where((element) => element.category=="featured").toList();
+
 }

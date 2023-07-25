@@ -21,12 +21,15 @@ class Count extends StatelessWidget {
     return Obx(
       () {
         return  foodModel.quantity>0?  Container(
-          height: 60,
-          width: 100,
+          height: MediaQuery.of(context).size.height*0.0705,
+          width: MediaQuery.of(context).size.width*0.2799,
           decoration: BoxDecoration(
               color: Colors.orange,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))),
+              // borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))
+              borderRadius: BorderRadius.circular(10)
+                  
+                  ),
           child: Stack(
             children: [
               Row(
@@ -36,8 +39,8 @@ class Count extends StatelessWidget {
                     return Container(
                       margin: EdgeInsets.only(left: 10, top: 10, bottom: 10),
                       padding: EdgeInsets.symmetric(horizontal: 5),
-                      height: 40,
-                      width: 90,
+                      height: MediaQuery.of(context).size.height*0.047,
+                      width: MediaQuery.of(context).size.width*0.229,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(5)),
