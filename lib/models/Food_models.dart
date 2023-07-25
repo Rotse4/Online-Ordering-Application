@@ -1,5 +1,5 @@
 class Food {
-  late List<FoodModel> _foods;
+   List<FoodModel> _foods=[];
   List<FoodModel> get foods=> _foods;
 
   Food({required foods}){
@@ -10,6 +10,11 @@ class Food {
     if (json['foods'] != null) {
       _foods = <FoodModel>[];
       json['foods'].forEach((v) {
+        _foods!.add(FoodModel.fromJson(v));
+      });
+    }else if(json['orders'] != null){
+         _foods = <FoodModel>[];
+      json['orders'].forEach((v) {
         _foods!.add(FoodModel.fromJson(v));
       });
     }
@@ -53,5 +58,6 @@ class FoodModel {
     category = json['category'];
     owner = json['owner'];
   }
+
 
 }

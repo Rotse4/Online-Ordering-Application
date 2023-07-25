@@ -16,7 +16,8 @@ class FoodMenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width/3.021,
-      margin: const EdgeInsets.only(left: 20),
+      // margin: const EdgeInsets.only(left: 20,),
+      margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: itemColor,
         borderRadius: BorderRadius.circular(10),

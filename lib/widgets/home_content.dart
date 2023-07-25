@@ -17,8 +17,7 @@ class HomeContent extends StatefulWidget {
 class _HomeContentState extends State<HomeContent> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -56,6 +55,7 @@ class _HomeContentState extends State<HomeContent> {
               Container(
                 child: GetBuilder<FoodController>(builder: (allFoods){
                 return allFoods.isLoaded?Container(
+                  // padding: EdgeInsets.only(right: 20),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height/3.824,
                   child: ListView.builder(
@@ -87,9 +87,11 @@ class _HomeContentState extends State<HomeContent> {
 
               ),
                SizedBox(height: MediaQuery.of(context).size.height/26.766667),
-              ListPage()
+              Container(
+                // height: MediaQuery.of(context).size.height,
+                child: ListPage())
         ],
-      ),
-    );
+      );
+  
   }
 }

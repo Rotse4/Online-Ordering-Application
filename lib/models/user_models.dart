@@ -38,6 +38,11 @@ class Payload {
         "user": user.toJson(),
         "token": token.toJson(),
     };
+    @override
+  String toString() {
+    // TODO: implement toString
+    return jsonEncode(toJson());
+  }
 }
 
 class Token {
