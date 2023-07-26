@@ -63,8 +63,8 @@ class _DropdownState extends State<Dropdown> {
           margin: EdgeInsets.only(left: 10),
           padding: EdgeInsets.only(left:20, right: 20, bottom: 10, top: 10),
           child: TextField(
-            minLines: 3,
-            maxLines: 3,
+            minLines: 2,
+            maxLines: 2,
            decoration: InputDecoration(
              hintText:"Specify exact location"
            ),

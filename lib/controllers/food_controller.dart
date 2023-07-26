@@ -110,7 +110,7 @@ class FoodController extends GetxController {
   FoodController({required this.foodRepo});
   List<FoodModel> _foodList = [];
   List<FoodModel> get foodList => _foodList;
-  List<FoodModel> _featuredList =[];
+  RxList<FoodModel> _featuredList =RxList.empty(growable: true);
   List<FoodModel> get fraturedList => _featuredList;
   Cart cart = Cart();
   bool _isLoaded = false;
@@ -162,7 +162,7 @@ return;
   Future<void> getCategory() async {
   Response? response = await foodRepo.getCategory();
     if (response?.statusCode == 200) {
-      _featuredList = [];
+      _featuredList.clear();
       _featuredList.addAll(Food.fromJson(response?.body).foods);
       // print(_foodList);
       print("list featured $_featuredList");
@@ -174,8 +174,8 @@ return;
       print("foods not found");
     }
   }
-List<FoodModel> get recommended => this._featuredList.where((element) => element.category=="recommended").toList();
-List<FoodModel>  get popular => this._featuredList.where((element) => element.category=="popular").toList();
-List<FoodModel>  get featured => this._featuredList.where((element) => element.category=="featured").toList();
+RxList<FoodModel> get recommended => _featuredList.where((element) => element.category=="recommended").toList().obs;
+RxList<FoodModel>  get popular => this._featuredList.where((element) => element.category=="popular").toList().obs;
+RxList<FoodModel>  get featured => this._featuredList.where((element) => element.category=="featured").toList().obs;
 
 }
