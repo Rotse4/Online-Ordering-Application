@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/widgets/checkout_page.dart';
 
 import '../controllers/food_controller.dart';
@@ -245,7 +246,8 @@ class CartPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: (){
-                        Get.to( CheckOutPage());
+                        // Get.to( CheckOutPage());
+                        Get.toNamed(RouteHelper.checkOutPage);
                       },
                       child: Container(
                         height: 55,

@@ -114,8 +114,8 @@ class _OrderHistoryState extends State<OrderHistory> {
               ],
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height*0.83431,
+          Expanded(
+            // height: MediaQuery.of(context).size.height*0.83431,
             // color: Colors.orange,
             child: PageView.builder(
               itemCount: _categories.length,

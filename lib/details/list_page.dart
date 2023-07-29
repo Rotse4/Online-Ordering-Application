@@ -5,6 +5,7 @@ import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/utils/app_constants.dart';
 import 'package:online_order_app/utils/counter.dart';
 
+import '../controllers/search_controller.dart';
 import '../models/Food_models.dart';
 
 // import 'details/details_page.dart';
@@ -27,6 +28,7 @@ class _ListPageState extends State<ListPage> {
   int _selectedIndex = 0;
 
   final PageController _pageController = PageController();
+  var serchingController = Get.find<SerchController>();
   final ScrollController _listViewController = ScrollController();
   FoodController foodController = Get.find();
 

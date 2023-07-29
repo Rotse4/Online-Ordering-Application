@@ -6,7 +6,6 @@ import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/utils/app_constants.dart';
 import 'package:online_order_app/utils/show_custom_snackbar.dart';
 import 'package:online_order_app/widgets/register_page.dart';
-
 import '../controllers/auth_contloller.dart';
 
 // ignore: must_be_immutable
@@ -132,6 +131,7 @@ class LoginPage extends StatelessWidget {
                     print("This is " + AppConstants.TOKEN);
                   } else {
                     showCustomSnackBar("invalid credentials");
+                    return;
                   }
                 },
                 child: Container(

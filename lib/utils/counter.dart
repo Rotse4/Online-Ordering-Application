@@ -9,6 +9,7 @@ enum ItemEvent { INCREMENT, DECREMENT }
 typedef ProductEvent = Function(FoodModel foodModel, ItemEvent itemEvent);
 FoodController foodController = Get.find();
 
+// ignore: must_be_immutable
 class Count extends StatelessWidget {
   var add = foodController.cart;
   int count = 0;

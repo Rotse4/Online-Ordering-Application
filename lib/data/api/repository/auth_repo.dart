@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:online_order_app/data/api/api_client.dart';
 import 'package:online_order_app/models/registration_model.dart';
 import 'package:online_order_app/utils/app_constants.dart';
+import 'package:online_order_app/widgets/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 
@@ -22,16 +23,17 @@ class AuthRepo{
   Future<Response> login(UserLogin userLogin) async {
      print("called on login");
      print(userLogin.toJson());
-    return await apiClient.postData(AppConstants.LOGIN_URI, userLogin.toJson());
+    var user= await apiClient.postData(AppConstants.LOGIN_URI, userLogin.toJson());
+    return user;
   }
-  Future<bool>saveUserToken(String token) async {
-    apiClient.token = token;
-    apiClient.updateHeader(token);
-    SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-    // print(AppConstants.TOKEN);
-    return  sharedPreferences.setString(AppConstants.TOKEN, token); 
+  // Future<bool>saveUserToken(String token) async {
+  //   apiClient.token = token;
+  //   apiClient.updateHeader(token);
+  //   SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+  //   // print(AppConstants.TOKEN);
+  //   return  sharedPreferences.setString(AppConstants.TOKEN, token); 
 
-  }
+  // }
     Future<bool>saveUser(String user) async {
    
     SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
@@ -51,6 +53,7 @@ class AuthRepo{
     var stringUser=  sharedPreferences.getString('user'); 
     // print(stringUser);
            if(stringUser==null){
+            Get.to(LoginPage());
             print("user is null, printing from auth repo");
             return null;
            }
@@ -69,5 +72,4 @@ class AuthRepo{
     return sharedPreferences.remove('user'); 
 
   }
-  
 }

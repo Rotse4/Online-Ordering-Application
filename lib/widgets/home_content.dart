@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:online_order_app/details/list_page.dart';
-import 'package:online_order_app/routes/rout_helper.dart';
+import 'package:online_order_app/widgets/search_page.dart';
 import '../controllers/food_controller.dart';
+import '../details/list_page.dart';
 import '../models/Food_models.dart';
+import '../routes/rout_helper.dart';
 import 'food_menu_widget.dart';
 
 class HomeContent extends StatefulWidget {
@@ -28,19 +29,43 @@ class _HomeContentState extends State<HomeContent> {
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height/40.15),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey[300],
-                    hintText: 'Search',
-                    prefixIcon: const Icon(Icons.search, color: Colors.black54,),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide.none,
-                    ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(RouteHelper.searchPage);
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  width: double.maxFinite,
+                  height: 54,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(20)
                   ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.search_outlined
+                      ),
+                      SizedBox(width: 20,),
+                      Text("Search Foods", style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 100, 100, 100)
+                      ),)
+                    ],
+                  ),
+                  // child: TextField(
+                  //   decoration: InputDecoration(
+                  //     filled: true,
+                  //     fillColor: Colors.grey[300],
+                  //     hintText: 'Search',
+                  //     prefixIcon: const Icon(Icons.search, color: Colors.black54,),
+                  //     border: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(20),
+                  //       borderSide: BorderSide.none,
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height/35.15),

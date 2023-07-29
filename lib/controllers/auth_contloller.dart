@@ -6,7 +6,6 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:online_order_app/data/api/repository/auth_repo.dart';
-import 'package:online_order_app/models/response_model.dart';
 import 'package:online_order_app/models/user_models.dart';
 import 'package:online_order_app/utils/app_constants.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +30,7 @@ class AuthController  extends GetxController implements GetxService{
      
       userModel= UserModel.fromJson(jsonDecode(response.bodyString??"{}"));
       // authRepo.saveUserToken(response.body["payload"]["token"]["access_token"]);
-      authRepo.saveUserToken(userModel.payload.token.accessToken);
+      // authRepo.saveUserToken(userModel.payload.token.accessToken);
       
       authRepo.saveUser(response.bodyString??"{}");
 
@@ -61,13 +60,14 @@ class AuthController  extends GetxController implements GetxService{
       userModel= UserModel.fromJson(jsonDecode(response.bodyString??"{}"));
       print(response.bodyString);
       // authRepo.saveUserToken(response.body["payload"]["token"]["access_token"]);
-      authRepo.saveUserToken(userModel.payload.token.accessToken);
+      // authRepo.saveUserToken(userModel.payload.token.accessToken);
+      // if()
       authRepo.saveUser(response.bodyString??"{}");
       print("my token is "+AppConstants.TOKEN);
       
     }else{
       var res=jsonDecode(response.bodyString??"{}");
-      print(res);
+      print("resss $res");
 
     }
     _isLoading=false;

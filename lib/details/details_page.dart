@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/controllers/food_controller.dart';
+import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/widgets/cart_page.dart';
 
 import '../utils/app_constants.dart';
@@ -32,7 +33,7 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 40),
+              padding: const EdgeInsets.only(left: 15, right: 30, top: 40),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,7 +56,9 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(CartPage());
+                      // Get.to(CartPage());
+                      Get.toNamed(RouteHelper.cartPage);
+
                     },
                     child: Stack(
                       alignment: Alignment.topRight,

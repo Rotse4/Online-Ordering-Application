@@ -8,7 +8,7 @@ import 'package:online_order_app/utils/app_constants.dart';
 
 // import 'package:http/http.dart' as http;
 
-class ApiClient extends GetConnect implements GetxService{
+class ApiClient<T> extends GetConnect implements GetxService{
   late String token;
   final String appBaseUrl;
 
@@ -92,11 +92,16 @@ class ApiClient extends GetConnect implements GetxService{
       'Authorization': 'Bearer $token',
     };
   }
-  Future<Response?> getData(String uri,) async{
+  Future<Response?> getData(String uri,{
+  Map<String, String>? headers,
+  String? contentType,
+  Map<String, dynamic>? query,
+  T Function(dynamic)? decoder,
+}) async{
     try{
-      Response response =await get(uri);
+      Response response =await get(uri,headers: headers,contentType: contentType,query: query,decoder: decoder);
       //print(response.bodyString);
-      print("Got all products");
+      // print("Got all products");
       return response;
     }catch(e){
       print("error trying to get foods");

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:get/get_core/src/get_main.dart';
 import 'package:online_order_app/controllers/food_controller.dart';
 import 'package:online_order_app/models/user_models.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
-import 'package:online_order_app/widgets/home.dart';
-import 'package:online_order_app/widgets/login_page.dart';
-import 'package:online_order_app/widgets/register_page.dart';
-
 import 'data/api/repository/auth_repo.dart';
 import 'helper/dependancies.dart' as dep;
+import 'helper/dependancies.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +37,8 @@ class _OnlineOrderingAppState extends State<OnlineOrderingApp> {
         if(snap.hasData){
 
           return GetMaterialApp(
+                      // initialBinding: InitilBindings(),
+
           debugShowCheckedModeBanner: false,
           title: 'Online Ordering App',
           theme: ThemeData(
@@ -48,22 +46,23 @@ class _OnlineOrderingAppState extends State<OnlineOrderingApp> {
           ),
           // home: LoginPage(),
           // home: HomePage(),
-          home: Home(),
-          initialRoute: RouteHelper.homeScreen,
+          // home: Home(),
+          initialRoute: RouteHelper.initial,
           getPages: RouteHelper.routes,
           // home: RegisterPage(),
         );
         }
         return GetMaterialApp(
+          // initialBinding: InitilBindings(),
           debugShowCheckedModeBanner: false,
           title: 'Online Ordering App',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.orange,
           ),
           // home: LoginPage(),
-          home: LoginPage(),
+          // home: LoginPage(),
           // home: Home(),
-          initialRoute: RouteHelper.initial,
+          initialRoute: RouteHelper.homeScreen,
           getPages: RouteHelper.routes,
           // home: RegisterPage(),
         );
