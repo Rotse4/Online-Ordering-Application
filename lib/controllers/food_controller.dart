@@ -117,6 +117,9 @@ class FoodController extends GetxController {
   bool get isLoaded => _isLoaded;
   int _setNum = 4;
   int get setNum => _setNum;
+
+  RxMap<String, dynamic> deliverMap= RxMap();
+
   addToCart(FoodModel foodModel) {
     cart.addItem(foodModel);
     update();
@@ -128,7 +131,7 @@ class FoodController extends GetxController {
       // FoodModel.fromJson(response.body);
       _foodList = [];
       _foodList.addAll(Food.fromJson(response?.body).foods);
-      print(_foodList);
+      // print(_foodList);
       _isLoaded = true;
       update();
     } else {
@@ -141,6 +144,7 @@ class FoodController extends GetxController {
   }
 
   orderNow() async{
+    print("dmap $deliverMap");
     if (isprocessing.value){
       return;
     }
@@ -152,7 +156,11 @@ return;
     var items = cart.foodListModel.map((element) =>
         {"id": element.foodModel.id, "quantity": element.quantity.value});
     var order = {"payment_number": "254"+payment_number.value, "items": items.toList()};
- 
+    deliverMap.forEach((key, value) {
+      order[key]=value;
+    });
+    // var order;
+    print(order);
      await foodRepo.orderNow(order);
       isprocessing.value=false;
   }
@@ -165,9 +173,9 @@ return;
       _featuredList.clear();
       _featuredList.addAll(Food.fromJson(response?.body).foods);
       // print(_foodList);
-      print("list featured $_featuredList");
-       print("list featured ${_featuredList.length}");
-      print("imefika hapa");
+      // print("list featured $_featuredList");
+      //  print("list featured ${_featuredList.length}");
+      // print("imefika hapa");
       _isLoaded = true;
       update();
     } else {

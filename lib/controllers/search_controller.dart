@@ -22,9 +22,9 @@ class SerchController extends GetxController {
       
       // FoodModel.fromJson(response.body);
       _foods = [];
-      print(" foods are $_foods");
+      // print(" foods are $_foods");
       _foods.addAll(Food.fromJson(response?.body).foods);
-      print(_foods);
+      // print(_foods);
       _isLoaded = true;
       update();
     } else {

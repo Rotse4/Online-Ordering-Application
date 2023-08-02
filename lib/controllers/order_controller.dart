@@ -10,6 +10,7 @@ class OrderController extends GetxController {
   OrderController({required this.orderRepo});
   List<OrderModel> _orderList =[];
   List<OrderModel> get orderList => _orderList;
+    
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;

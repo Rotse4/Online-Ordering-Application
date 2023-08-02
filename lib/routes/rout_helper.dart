@@ -3,6 +3,7 @@ import 'package:online_order_app/widgets/cart_page.dart';
 import 'package:online_order_app/widgets/checkout_page.dart';
 import 'package:online_order_app/widgets/order_history.dart';
 import 'package:online_order_app/widgets/search_page.dart';
+import 'package:online_order_app/widgets/user_profile.dart';
 
 import '../details/details_page.dart';
 import '../widgets/home.dart';
@@ -18,6 +19,8 @@ class RouteHelper{
   static const String cartPage="/cart-page";
   static const String checkOutPage="/checkout-page";
   static const String searchPage ="/search-page";
+  static const String userProfile ="/user-profile-page";
+  static const String home ="/home-page";
   
   // RouteHelper(int index);
 
@@ -31,6 +34,8 @@ class RouteHelper{
     GetPage(name: cartPage, page: ()=>CartPage()),
     GetPage(name: checkOutPage, page: ()=>CheckOutPage()),
     GetPage(name: searchPage, page: ()=>SearchPage()),
+    GetPage(name: userProfile, page: ()=>UserProfile()),
+    GetPage(name: home, page: ()=>Home()),
     
        
     GetPage(name: detailPage, page: (){

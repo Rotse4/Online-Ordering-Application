@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_order_app/controllers/food_controller.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/widgets/drawer.dart';
 import 'package:online_order_app/widgets/home_content.dart';
@@ -15,6 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  FoodController foodController =Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,32 +34,52 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: (){
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                    // onTap: () {
-                    //   Get.toNamed(RouteHelper.orderHistory);
-                    // },
-                    child: const Icon(Icons.menu),
-                  ),
+                  const CircleAvatar(backgroundColor: Colors.orange,
+                  backgroundImage: AssetImage("assets/images/avatar.png"),),
                   const SizedBox(width: 20),
                   GestureDetector(
                     onTap: (){
-                      showDialog(context: context, builder:(ctx)=> DialogExample());
+                      Get.toNamed(RouteHelper.cartPage);
                       // Get.to(()=>DialogExample());
                     },
-                    child: Container(
-                    height: MediaQuery.of(context).size.height/22.3,
-                    width: MediaQuery.of(context).size.width/11,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      color: Colors.orange.withOpacity(0.6),
-                    ),
+                    child: Obx(
+                       () {
+                        return Container(
+                        height: MediaQuery.of(context).size.height/22.3,
+                        width: MediaQuery.of(context).size.width/11,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: Colors.orange,
+                        ),
 
-                    child: const CircleAvatar(backgroundColor: Colors.orange,
-                    backgroundImage: AssetImage("assets/images/avatar.png"),)
-                  ),
+                        child: Stack(
+                          alignment: Alignment.topRight,
+                          children:[ Container(
+                            child: Center(child: Icon(Icons.shopping_cart, color: Colors.white,)),
+                          ),
+                          foodController.cart.foodListModel.isNotEmpty? Container(
+                            
+                            height: 10,
+                            width: 10,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(4)
+                            ),
+                            child: Center(
+                              child: Text(
+                                "${foodController.cart.foodListModel.length}", 
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 8
+                                ),
+                              ),
+                            ),
+                          ):Container()
+                          ]
+                        )
+                  );
+                      }
+                    ),
                   ),                 
                 ],
               ),

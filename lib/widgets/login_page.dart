@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/models/login_model.dart';
@@ -40,7 +42,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(child: Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: SingleChildScrollView(
@@ -246,6 +248,8 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ), onWillPop: ()async{
+      exit(0);
+    });
   }
 }

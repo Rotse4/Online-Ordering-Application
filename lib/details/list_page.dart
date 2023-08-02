@@ -213,8 +213,15 @@ class _ListPageState extends State<ListPage> {
                                                                   size: 15,
                                                                 )),
                                                       ),
-                                                      const Text(
-                                                          "\$25   " "\$18"),
+                                                       Row(
+                                                         children: [
+                                                           Text(
+                                                              "Ksh ${foodModel.price} "),
+                                                              Text("Ksh25",style: TextStyle(
+                                                                decoration: TextDecoration.lineThrough
+                                                              ),)
+                                                         ],
+                                                       ),
                                                     ],
                                                   ),
                                                 ),

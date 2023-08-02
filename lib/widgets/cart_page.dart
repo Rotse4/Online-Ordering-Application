@@ -86,8 +86,8 @@ class CartPage extends StatelessWidget {
                     itemCount: adedItems.foodListModel.length,
                     itemBuilder: (context, index) {
                       CartItem cartItem = adedItems.foodListModel[index];
-                      print("sHeight is ${MediaQuery.of(context).size.height}");
-                      print("sHeight is ${MediaQuery.of(context).size.width}");
+                      // print("sHeight is ${MediaQuery.of(context).size.height}");
+                      // print("sHeight is ${MediaQuery.of(context).size.width}");
                       return Container(
                           margin: EdgeInsets.only(bottom: 10),
                           // padding: EdgeInsets.only(right: 10),

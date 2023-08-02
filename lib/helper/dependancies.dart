@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/controllers/auth_contloller.dart';
 import 'package:online_order_app/controllers/food_controller.dart';

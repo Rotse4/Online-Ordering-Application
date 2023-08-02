@@ -28,6 +28,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
     phoneNumberController.addListener(() {
       String phoneNumber =phoneNumberController.text.trim();
       foodController.payment_number(phoneNumber);
+
       
     });
     
@@ -39,6 +40,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
     var adedItems = foodController.cart;
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 247, 235, 218),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
@@ -74,98 +76,106 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20, left: 15, right: 15),
-                height: MediaQuery.of(context).size.height*0.25,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 149, 183, 211),
-                ),
-                child: Container(
-                  padding: EdgeInsets.only(top: 10),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 226, 185),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Order details",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      ),
-                      Expanded(
-                        child: Container(
-                          // height: 140,
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          // margin: EdgeInsets.only(bottom: 10),
-                          child: Scrollbar(
-                            thumbVisibility: true,
-                            controller: controller,
-                            child: ListView.builder(
-                              controller: controller,
-                                itemCount: adedItems.foodListModel.length,
-                                itemBuilder: (context, index) {
-                                  var caritem = adedItems.foodListModel[index];
-                                  return Container(
-                                      padding: EdgeInsets.only(bottom: 5, right: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "${caritem.foodModel.title} x ${caritem.quantity}",
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "Ksh ${caritem.subTatal}",
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.normal),
-                                          )
-                                        ],
-                                      ));
-                                }),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height*0.005875,
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        height: 1,
-                        thickness: 0,
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(right: 20, top: 5, bottom: 5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Total: Ksh ${adedItems.bill}",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+              Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      color: Colors.white,
+      child: SizedBox(
+        height: 220,
+        width: 344,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Order details",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  controller: controller,
+                  child: ListView.builder(
+                    controller: controller,
+                    itemCount: adedItems.foodListModel.length,
+                    itemBuilder: (context, index) {
+                      var caritem = adedItems.foodListModel[index];
+                      return Container(
+                        padding: EdgeInsets.only(bottom: 5, right: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${caritem.foodModel.title} x ${caritem.quantity}",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ))
-                    ],
+                            ),
+                            Text(
+                              "Ksh ${caritem.subTatal}",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.005875,
+            ),
+            Divider(
+              color: Colors.black,
+              height: 1,
+              thickness: 0,
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 20, top: 5, bottom: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Total: Ksh ${adedItems.bill}",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
               RadioSelect(),
                Container(
                 // height: 200,
                 width: double.maxFinite,
                 margin: EdgeInsets.symmetric(horizontal: 20, ),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
                   child: Container(
+
+                    // color: Colors.white,
                     padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,6 +223,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                         return GestureDetector(
                           onTap: () {
                             foodController.orderNow();
+                            
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height*0.06462,

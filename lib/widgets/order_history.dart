@@ -55,13 +55,13 @@ class _OrderHistoryState extends State<OrderHistory> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Icon(Icons.arrow_back)),
+                // GestureDetector(
+                //     onTap: () {
+                //       Get.back();
+                //     },
+                //     child: Icon(Icons.arrow_back)),
                 Text(
-                  "Orders",
+                  "Your Orders",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Icon(Icons.shopping_cart)

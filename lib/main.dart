@@ -63,6 +63,7 @@ class _OnlineOrderingAppState extends State<OnlineOrderingApp> {
           // home: LoginPage(),
           // home: Home(),
           initialRoute: RouteHelper.homeScreen,
+          // initialRoute: RouteHelper.userProfile,
           getPages: RouteHelper.routes,
           // home: RegisterPage(),
         );

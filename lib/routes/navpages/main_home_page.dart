@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:online_order_app/widgets/user_profile.dart';
 
 import '../../widgets/cart_page.dart';
 import '../../widgets/home.dart';
@@ -15,8 +18,8 @@ class _MainHomePageState extends State<MainHomePage> {
   int _selectedIndex=0;
   List pages =[
     Home(),
-    Container(child: Center(child: Text("Next page"),),),
-    CartPage(),
+    UserProfile(),
+    Container(child: Center(child: Text("Development in process"),),),
     OrderHistory()
     
   ];
@@ -28,12 +31,16 @@ class _MainHomePageState extends State<MainHomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () async{
+        exit(0);
+      },
+      child:  Scaffold(
       backgroundColor:  const Color.fromARGB(255, 247, 235, 218),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color.fromARGB(255, 228, 225, 221),
+        backgroundColor:  Color.fromARGB(255, 247, 235, 218),
         selectedItemColor: Colors.orange,
         unselectedItemColor: Colors.orange.withOpacity(0.5),
         showSelectedLabels: true,
@@ -53,8 +60,8 @@ class _MainHomePageState extends State<MainHomePage> {
             label: "Account"
             ),
             BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_rounded,),
-            label: "Cart"
+            icon: Icon(Icons.notifications,),
+            label: "Notifcations"
             ),
             BottomNavigationBarItem(
             icon: Icon(Icons.menu,),
@@ -62,6 +69,7 @@ class _MainHomePageState extends State<MainHomePage> {
             ),
             
         ]),
-    );
+    ),
+       );
   }
 }
