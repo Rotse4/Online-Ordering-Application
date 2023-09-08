@@ -79,13 +79,13 @@ class _DetailPageState extends State<DetailPage> {
                           height: 10,
                           width: 10,
                           decoration: BoxDecoration(
-                              color: Colors.blue,
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(5)),
                           child: Center(child: Obx(() {
                             return Text(
                                 "${foodController.cart.foodListModel.length}",
                                 style: TextStyle(
-                                    fontSize: 8, color: Colors.white));
+                                    fontSize: 8, color: Colors.black));
                           })),
                         )
                       ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/widgets/checkout_page.dart';
+import 'package:online_order_app/widgets/empty_cart.dart';
 
 import '../controllers/food_controller.dart';
 import '../utils/app_constants.dart';
@@ -15,7 +16,8 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 247, 235, 218),
-      body: Obx(() {
+      body: foodController.cart.isCartEmpty?const EmptyCart():
+      Obx(() {
         var adedItems = foodController.cart;
         // adedItems.foodListModel.firstWhere
         return Column(
@@ -65,12 +67,12 @@ class CartPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height*0.0117,
                         width: MediaQuery.of(context).size.width*0.02544,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(5)),
                         child: Center(
                           child: Text("${adedItems.foodListModel.length}",
                               style:
-                                  TextStyle(fontSize: 8, color: Colors.white)),
+                                  TextStyle(fontSize: 8, color: Colors.black)),
                         ),
                       )
                     ],
@@ -87,7 +89,7 @@ class CartPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       CartItem cartItem = adedItems.foodListModel[index];
                       // print("sHeight is ${MediaQuery.of(context).size.height}");
-                      // print("sHeight is ${MediaQuery.of(context).size.width}");
+                      print("sHeight is ${MediaQuery.of(context).size.width}");
                       return Container(
                           margin: EdgeInsets.only(bottom: 10),
                           // padding: EdgeInsets.only(right: 10),

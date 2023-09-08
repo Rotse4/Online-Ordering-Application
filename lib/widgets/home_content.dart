@@ -37,7 +37,7 @@ class _HomeContentState extends State<HomeContent> {
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding: EdgeInsets.only(left: 10, right: 10),
                   width: double.maxFinite,
-                  height: 54,
+                  height: MediaQuery.of(context).size.height*0.0634,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(20)
@@ -109,12 +109,14 @@ class _HomeContentState extends State<HomeContent> {
               //   color: Colors.blue. withOpacity(0.5),
               
               }),
-
+    
               ),
                SizedBox(height: MediaQuery.of(context).size.height/26.766667),
               Container(
                 // height: MediaQuery.of(context).size.height,
-                child: ListPage())
+                
+                  child: ListPage())
+                  
         ],
       );
   

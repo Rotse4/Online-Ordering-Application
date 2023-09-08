@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/controllers/auth_contloller.dart';
 import 'package:online_order_app/models/registration_model.dart';
-import 'package:online_order_app/models/response_model.dart';
 import 'package:online_order_app/models/user_models.dart';
 import 'package:online_order_app/routes/rout_helper.dart';
 import 'package:online_order_app/utils/show_custom_snackbar.dart';
 import 'package:online_order_app/widgets/login_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -218,7 +216,7 @@ class _RegisterPageState extends State<RegisterPage> {
                        var user= await _registration();
                        if(user!=null){
                         Get.toNamed(RouteHelper.homeScreen);
-                        showCustomSnackBar("Registration Successfull", backgroundColor: Colors.green);
+                        showCustomSnackBar("Registration Successfull", backgroundColor: Colors.green, title: "success");
                        }else{
                         showCustomSnackBar("Email or Username already taken");
                        }

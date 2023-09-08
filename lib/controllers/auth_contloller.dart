@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/data/api/repository/auth_repo.dart';
 import 'package:online_order_app/models/user_models.dart';
@@ -13,6 +14,7 @@ import 'package:online_order_app/utils/app_constants.dart';
 
 import '../models/login_model.dart';
 import '../models/registration_model.dart';
+import '../utils/show_custom_snackbar.dart';
 
 class AuthController  extends GetxController implements GetxService{
   AuthRepo authRepo= AuthRepo(apiClient: Get.find());
@@ -63,6 +65,8 @@ class AuthController  extends GetxController implements GetxService{
       // authRepo.saveUserToken(userModel.payload.token.accessToken);
       // if()
       authRepo.saveUser(response.bodyString??"{}");
+      showCustomSnackBar("We missed you ${userModel.payload.user.username}!",
+      title: "Welcome", backgroundColor: Colors.orange );
       print("my token is "+AppConstants.TOKEN);
       
     }else{

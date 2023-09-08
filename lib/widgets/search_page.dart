@@ -73,6 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(20)),
                       child: TextField(
+                        autofocus: true,
                         controller: schingController,
                         decoration: const InputDecoration(
                             prefixIcon: Icon(

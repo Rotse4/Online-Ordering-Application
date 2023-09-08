@@ -106,11 +106,14 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height*0.0355,),
-            Container(
-              height: MediaQuery.of(context).size.height*0.49,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10)
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(bottom: 10),
+                // height: MediaQuery.of(context).size.height*0.49,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10)
+                ),
               ),
             )
           ],

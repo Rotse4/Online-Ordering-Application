@@ -152,11 +152,11 @@ class _OrderHistoryState extends State<OrderHistory> {
                                     borderRadius: BorderRadius.circular(5),
                                     color: Colors.blue,
                                   ),
-                                  child: Image(
-                                    image:
-                                        AssetImage("assets/images/hamburg.jpg"),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  // child: Image(
+                                  //   image:
+                                  //       AssetImage("assets/images/hamburg.jpg"),
+                                  //   fit: BoxFit.cover,
+                                  // ),
                                 ),
                                 Expanded(
                                   child: Container(

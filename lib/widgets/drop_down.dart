@@ -56,7 +56,7 @@ class _DropdownState extends State<Dropdown> {
             value: dropdownValue,
             icon: const Icon(Icons.arrow_drop_down_outlined),
             elevation: 16,
-            style: const TextStyle(color: Colors.deepPurple),
+            style: const TextStyle(color: Colors.deepPurple,),
             underline: Container(
               height: 0,
             ),
@@ -82,6 +82,7 @@ class _DropdownState extends State<Dropdown> {
         ),
         Container(
           // color: Colors.blue,
+          height: MediaQuery.of(context).size.height*0.097,
           width: double.maxFinite,
           // margin: EdgeInsets.only(left: 10),
           padding: EdgeInsets.only(left:20, right: 20, bottom: 10, top: 10),

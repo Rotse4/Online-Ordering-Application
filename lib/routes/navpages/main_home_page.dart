@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:online_order_app/widgets/user_profile.dart';
-
-import '../../widgets/cart_page.dart';
 import '../../widgets/home.dart';
 import '../../widgets/order_history.dart';
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_order_app/controllers/food_controller.dart';
-
-import '../controllers/order_controller.dart';
 import 'drop_down.dart';
 
 enum SelectValues {StationPick, deliver}
@@ -33,7 +31,8 @@ class _RadioSelectState extends State<RadioSelect> {
     // print("from h ${foodController.deliverMap}");
     return Container(
               height: MediaQuery.of(context).size.height*0.3760,
-              padding: EdgeInsets.symmetric(horizontal: 20, ),
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              constraints: BoxConstraints(minHeight: 251),
               child: Card(
                 shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -41,10 +40,14 @@ class _RadioSelectState extends State<RadioSelect> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("     Shipping  Method", style:  TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("     Shipping  Method", style:  TextStyle(
+                      fontSize: MediaQuery.of(context).size.height*0.0235
+                    , fontWeight: FontWeight.bold),),
                      RadioListTile(
-                        title: Text("Pick from our Food Caffee"),
-                        subtitle: Text("Zimmerm Hub"),
+                        title: Text("Pick from our Food Caffee", style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height*0.0188,
+                        ),),
+                        subtitle: Text("Zimmerm Hub",),
                         value: SelectValues.StationPick, groupValue: _character, onChanged: (value){
                           setState(() {
                             foodController.deliverMap["pickup"]=true;
@@ -57,8 +60,10 @@ class _RadioSelectState extends State<RadioSelect> {
                           });
               
                       }),
-                        RadioListTile(
-                        title: Text("Deliver To"),
+                        RadioListTile(              
+                        title: Text("Deliver To", style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height*0.0188,
+                        )),
                         subtitle: Text("Areas around Kasarani"),
                         value: SelectValues.deliver, groupValue: _character, onChanged: (value){
                           setState(() {

@@ -42,7 +42,7 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height ,
+      // height: MediaQuery.of(context).size.height,
       height: 900,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -91,7 +91,8 @@ class _ListPageState extends State<ListPage> {
           ),
           SizedBox(height: MediaQuery.of(context).size.height / 144.7143),
           Expanded(
-            // height: double.maxFinite,
+            // color: Colors.blue,
+            // height: 520,
             child: GetBuilder<FoodController>(
                 init: foodController,
                 builder: (ctr) {
@@ -108,16 +109,18 @@ class _ListPageState extends State<ListPage> {
                           break;
                         case 1:
                           foodModels.addAll(ctr.featured);
-
+          
                           break;
                         case 2:
                           foodModels.addAll(ctr.recommended);
                           break;
-
+          
                         default:
                           foodModels.addAll(foodController.popular);
                       }
                       return Container(
+                        // color: Colors.blue,
+                        // height: 1200,
                           margin: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * 0.05089,
                             right: MediaQuery.of(context).size.width * 0.05089,
@@ -125,7 +128,7 @@ class _ListPageState extends State<ListPage> {
                           child: GetBuilder<FoodController>(
                             builder: (allFoods) {
                               return ListView.builder(
-                                  shrinkWrap: true,
+                                  // shrinkWrap: true,
                                   // reverse: true,
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: foodModels.length,
@@ -236,41 +239,37 @@ class _ListPageState extends State<ListPage> {
                                           Obx(() {
                                             return foodController.cart
                                                     .innCart(foodModel)
-                                                ? Count(
-                                                    foodModel: foodController
-                                                            .cart
-                                                            .getCartItem(
-                                                                foodModel) ??
-                                                        CartItem(
-                                                            foodModel:
-                                                                foodModel,
-                                                            quantity: 0.obs),
-                                                    productEvent:
-                                                        (foodModel, itemEvent) {
-                                                      switch (itemEvent) {
-                                                        case ItemEvent
-                                                              .INCREMENT:
-                                                          {
-                                                            foodController.cart
-                                                                .addItem(
-                                                                    foodModel);
-                                                          }
-                                                          break;
-                                                        case ItemEvent
-                                                              .DECREMENT:
-                                                          {
-                                                            foodController.cart
-                                                                .reduceQuantity(
-                                                                    foodModel);
-                                                          }
-                                                          break;
-
-                                                        default:
-                                                      }
-
-                                                      print(
-                                                          "this food ${foodModel.title} as being ${itemEvent.name} by 1");
+                                                ? GestureDetector(
+                                                    onTap: () {
+                                                      foodController.cart.deleteItem(foodModel);
                                                     },
+                                                    child: Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height /
+                                                              16.7291667,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width /
+                                                              8.181818,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(24),
+                                                        color: Colors.orange,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 60),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              10),
+                                                      child: const Icon(
+                                                        Icons.delete,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
                                                   )
                                                 : GestureDetector(
                                                     onTap: () {
